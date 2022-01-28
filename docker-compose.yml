@@ -1,0 +1,12 @@
+task_handler:
+  build: .
+  command: python -u app.py
+  ports:
+    - "5000:5000"
+  volumes:
+    - .:/code
+  restart: always
+  links:
+    - db
+db:
+  image: mongo:5.0.5
